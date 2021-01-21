@@ -1,14 +1,17 @@
-/* eslint-disable import/no-unresolved */
-// eslint-disable-next-line no-use-before-define
 import React from 'react';
-// eslint-disable-next-line import/extensions
+import { GlobalStyle } from './styles/GlobalStyles';
 import HeaderComponent from './components/header';
+import FooterComponent from './components/footer';
+import IndexPage from './pages/index';
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <GlobalStyle />
       <HeaderComponent />
-    </div>
+      <IndexPage />
+      <FooterComponent />
+    </>
   );
 }
 
