@@ -9,7 +9,7 @@ export const Main = styled.main`
 
 export const Form = styled.form`
     background:rgba(76, 67, 92, 0.6);
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,5 +43,12 @@ export const Form = styled.form`
         border: none;
         cursor: pointer;
         width: 150px;   
+    }
+`;
+
+export const LyricContainer = styled.div`
+    margin: 50px 0;
+    p {
+        text-align: center;
     }
 `;

@@ -32,5 +32,6 @@ module.exports = {
     'no-use-before-define': 0,
     'import/prefer-default-export': 0,
     'import/extensions': 0,
+    'no-alert': 0,
   },
 };

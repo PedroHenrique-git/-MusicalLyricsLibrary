@@ -7,7 +7,12 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
         font-family: 'Fraunces', serif;
     }
+    html {
+        height: 100%;
+        min-height: 100%;
+    }
     body {
         background: #fbfbfc;
+        min-height: 100%;
     }
 `;
