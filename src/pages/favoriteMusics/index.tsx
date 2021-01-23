@@ -56,7 +56,7 @@ export default function FavoriteMusic() {
         {favoriteMusics.map((music, index) => (
           <ul>
             <li>
-              <button onClick={() => deleteMusic(index, music.title)} type="button">X</button>
+              <button title="delete music" onClick={() => deleteMusic(index, music.title)} type="button" className="btn-delete">X</button>
             </li>
             <li>{music.title}</li>
             {formatedLyric(music.lyric).map((lines) => (

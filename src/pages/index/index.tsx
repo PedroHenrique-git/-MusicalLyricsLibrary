@@ -49,11 +49,11 @@ export default function IndexPage() {
 
   const setFavoriteMusic = (): void => {
     if (lyric) {
-      favoriteMusics.push({
-        title: music,
-        lyric,
-      });
       if (localStorage.getItem('favoriteMusics') === null) {
+        favoriteMusics.push({
+          title: music,
+          lyric,
+        });
         localStorage.setItem('favoriteMusics', JSON.stringify(favoriteMusics));
       } else {
         const oldValues: string | null = localStorage.getItem('favoriteMusics');

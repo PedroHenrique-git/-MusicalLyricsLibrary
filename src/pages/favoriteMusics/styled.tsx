@@ -16,11 +16,22 @@ export const MusicsContainer = styled.div`
         list-style: none;
         width: auto;
         height: auto;
+        
+        .btn-delete {
+            background: #eb7979;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            font-size: 18px;
+        }
 
-        li:first-child {
+        li:nth-of-type(2) {
             font-size: 18px;
             font-weight: bolder;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
     }
 `;
