@@ -1,10 +1,13 @@
 /* eslint-disable no-control-regex */
 import React, { FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { Main, Form, LyricContainer } from './ styled';
 import api from '../../utils/api';
 import LoadingComponent from '../../components/isLoadingComponent';
+import HeaderComponent from '../../components/header';
+import FooterComponent from '../../components/footer';
 
-const favoriteMusics: string[] = [];
+const favoriteMusics: Object[] = [];
 
 export default function IndexPage() {
   const [music, setMusic] = React.useState('');
@@ -34,15 +37,22 @@ export default function IndexPage() {
     setIsLoading(true);
   };
 
-  const formatedLyric = (value: string): string => {
-    // const btn = '<br> <button class="favorite-btn">Favorite music</button>';
-    const string = value.replace(new RegExp('\n', 'g'), '<br>');
-    return string;
+  const formatedLyric = (value: string): string[] => {
+    let arr:string[] = [];
+    if (value) {
+      arr = value.split('\n');
+    } else {
+      arr.push('no music searched');
+    }
+    return arr;
   };
 
   const setFavoriteMusic = (): void => {
     if (lyric) {
-      favoriteMusics.push(lyric);
+      favoriteMusics.push({
+        title: music,
+        lyric,
+      });
       localStorage.setItem('favoriteMusics', JSON.stringify(favoriteMusics));
     }
   };
@@ -52,15 +62,30 @@ export default function IndexPage() {
   }
 
   return (
-    <Main>
-      <Form onSubmit={(e) => handleSubmit(e)}>
-        <input value={music} onChange={(e) => setMusic(e.target.value)} type="text" name="nameMusic" id="nameMusic" placeholder="Artista - música" />
-        <input type="submit" value="Pesquisar" />
-        <button disabled={lyric === ''} onClick={setFavoriteMusic} type="button" className="favorite-btn">Favorite music</button>
-      </Form>
-      <LyricContainer>
-        <p dangerouslySetInnerHTML={{ __html: formatedLyric(lyric) }} />
-      </LyricContainer>
-    </Main>
+    <>
+      <HeaderComponent />
+      <Main>
+        <Form onSubmit={(e) => handleSubmit(e)}>
+          <input value={music} onChange={(e) => setMusic(e.target.value)} type="text" name="nameMusic" id="nameMusic" placeholder="Artista - música" />
+          <input type="submit" value="Pesquisar" className="btn" />
+          <button disabled={lyric === ''} onClick={setFavoriteMusic} className="btn" type="button">Favorite music</button>
+          <Link to="/favorites" className="btn btn-favorite">My favorite musics</Link>
+        </Form>
+        <LyricContainer>
+          <h1 className={`${music && lyric ? 'title-music' : ''}`}>{`${music && lyric ? music : ''}`}</h1>
+          <ul>
+            {formatedLyric(lyric).map((line, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <li key={`${index}`} className={`${formatedLyric(lyric)[0] === 'no music searched' ? 'no-music' : 'has-music'}`}>
+                {line}
+                {' '}
+                <br />
+              </li>
+            ))}
+          </ul>
+        </LyricContainer>
+      </Main>
+      <FooterComponent />
+    </>
   );
 }

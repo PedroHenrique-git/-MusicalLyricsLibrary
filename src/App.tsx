@@ -1,17 +1,17 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyle } from './styles/GlobalStyles';
-import HeaderComponent from './components/header';
-import FooterComponent from './components/footer';
-import IndexPage from './pages/index';
+import Routes from './routes/routes';
+// import HeaderComponent from './components/header';
+// import FooterComponent from './components/footer';
+// import IndexPage from './pages/index';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
-      <HeaderComponent />
-      <IndexPage />
-      <FooterComponent />
-    </>
+      <Routes />
+    </BrowserRouter>
   );
 }
 

@@ -18,37 +18,75 @@ export const Form = styled.form`
     width: 100%;
 
     @media (max-width: 640px) {
+        height: 320px;
         flex-direction: column;
     }
 
-    input {
+    input[type="text"] {
         border-radius: 10px;
         height: 40px;
         padding: 8px;
         font-size: 18px;
-    }
-
-    input[type="text"] {
         border: 1px solid#9a9da8;
         margin-right: 20px;
         width: 350px;
 
         @media (max-width: 640px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 330px;
             margin: 20px 0;
         }
     }
 
-    input[type="submit"] {
+    .btn {
+        border-radius: 10px;
+        height: 40px;
+        padding: 8px;
+        font-size: 18px;
         background: #e64041;
         border: none;
         cursor: pointer;
-        width: 150px;   
+        width: 150px; 
+        margin-right: 15px;
+
+        @media (max-width: 640px) {
+            margin-top: 15px;
+        }
+    }
+
+    .btn-favorite {
+        color: #000;
+        height: auto;
+        text-decoration: none;
+        text-align: center;
     }
 `;
 
 export const LyricContainer = styled.div`
     margin: 50px 0;
-    p {
+
+    @media (max-width: 640px) {
+        margin: 50px 30px;
+    }
+
+    ul {
+        list-style: none;
+    }
+    p,.has-music {
         text-align: center;
+    }
+    .no-music {
+        text-align: center;
+        text-transform: uppercase;
+        height: 50.5vh;
+        font-size: 32px;
+    }
+    .title-music {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 20px;
     }
 `;

@@ -7,4 +7,10 @@ export const Header = styled.header`
     text-align: center;
     position: sticky;
     top: 0;
+    a { 
+        text-decoration: none;    
+        h1 {
+            color: #fff;
+        }
+    }
 `;
