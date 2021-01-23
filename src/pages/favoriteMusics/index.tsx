@@ -5,21 +5,30 @@ import FooterComponent from '../../components/footer';
 import { MusicsContainer } from './styled';
 
 interface Imusic {
+    index: number;
     title: string;
     lyric:string;
 }
 
 export default function FavoriteMusic() {
   const musics: string | null = localStorage.getItem('favoriteMusics');
-  let favoriteMusics: Array<Imusic> = [];
-
-  if (musics) {
-    favoriteMusics = JSON.parse(musics);
-  }
+  const [favoriteMusics, setFavoriteMusics] = React.useState<Array<Imusic>>([]);
 
   const formatedLyric = (value: string): string[] => value.split('\n');
 
-  if (!favoriteMusics || !musics) {
+  const deleteMusic = (index: number, title:string): void => {
+    favoriteMusics.splice(index, 1);
+    setFavoriteMusics(favoriteMusics.filter((music) => music.title !== title));
+    localStorage.setItem('favoriteMusics', JSON.stringify(favoriteMusics));
+  };
+
+  React.useEffect(() => {
+    if (musics) {
+      setFavoriteMusics(JSON.parse(musics));
+    }
+  }, []);
+
+  if (!favoriteMusics || !musics || musics === '[]') {
     return (
       <>
         <HeaderComponent />
@@ -44,8 +53,11 @@ export default function FavoriteMusic() {
     <>
       <HeaderComponent />
       <MusicsContainer>
-        {favoriteMusics.map((music) => (
+        {favoriteMusics.map((music, index) => (
           <ul>
+            <li>
+              <button onClick={() => deleteMusic(index, music.title)} type="button">X</button>
+            </li>
             <li>{music.title}</li>
             {formatedLyric(music.lyric).map((lines) => (
               <li>

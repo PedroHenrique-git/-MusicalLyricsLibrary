@@ -14,6 +14,7 @@ export const MusicsContainer = styled.div`
         margin: 20px;
         padding: 20px;
         list-style: none;
+        width: auto;
         height: auto;
 
         li:first-child {

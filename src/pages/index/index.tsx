@@ -53,7 +53,19 @@ export default function IndexPage() {
         title: music,
         lyric,
       });
-      localStorage.setItem('favoriteMusics', JSON.stringify(favoriteMusics));
+      if (localStorage.getItem('favoriteMusics') === null) {
+        localStorage.setItem('favoriteMusics', JSON.stringify(favoriteMusics));
+      } else {
+        const oldValues: string | null = localStorage.getItem('favoriteMusics');
+        if (oldValues) {
+          const val: Array<Object> = JSON.parse(oldValues);
+          val.push({
+            title: music,
+            lyric,
+          });
+          localStorage.setItem('favoriteMusics', JSON.stringify(val));
+        }
+      }
     }
   };
 
