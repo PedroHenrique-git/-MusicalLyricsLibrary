@@ -2,9 +2,9 @@
 
 <p>Project to search for song lyrics. Made in ReactJs, TypeScript and StyledComponents.</p>
 
-<p><b>Images:</b></p>
+<p>API used: https://lyricsovh.docs.apiary.io/#</p
 
-<p>API used: https://lyricsovh.docs.apiary.io/#</p>
+<p><b>Images:</b></p>
 
 <img src="/src/images/ldesktop.png">
 <img src="/src/images/ldesktoLyric.png">
