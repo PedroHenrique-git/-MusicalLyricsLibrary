@@ -4,6 +4,8 @@
 
 <p><b>Images:</b></p>
 
+<p>API used: https://lyricsovh.docs.apiary.io/#</p>
+
 <img src="/src/images/ldesktop.png">
 <img src="/src/images/ldesktoLyric.png">
 <img src="/src/images/lmobile.png">
