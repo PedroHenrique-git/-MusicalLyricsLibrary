@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { useArtist } from '../../services/getData';
 import { MainContainer } from './style';
 
@@ -12,7 +12,14 @@ export default function ArtistPage(): JSX.Element {
 
     if (isError) return <h1>Error...</h1>;
 
-    htmlBackground.style.backgroundImage = `url(${data.artists[0].strArtistThumb})`;
+    if (data.artists === null) {
+        alert('Nada encontrado');
+        return <Redirect to="/" />;
+    }
+
+    if (data.artists[0].strArtistWideThumb !== null) {
+        htmlBackground.style.backgroundImage = `url(${data.artists[0].strArtistWideThumb})`;
+    }
 
     return (
         <MainContainer>
