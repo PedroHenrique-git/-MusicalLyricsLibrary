@@ -1,7 +1,8 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Redirect } from 'react-router-dom';
 import { SearchContainer } from './style';
+import background from '../../images/background.jpg';
 
 export default function Index(): JSX.Element {
     const [artist, setArtist] = useState('');
@@ -11,6 +12,10 @@ export default function Index(): JSX.Element {
         e.preventDefault();
         setRedirect(true);
     };
+
+    useEffect(() => {
+        document.documentElement.style.backgroundImage = `url(${background})`;
+    }, []);
 
     if (redirect) return <Redirect to={`/artist/${artist}`} />;
 

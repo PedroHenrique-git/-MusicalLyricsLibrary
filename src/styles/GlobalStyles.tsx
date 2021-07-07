@@ -5,11 +5,11 @@ export const GlobalStyles = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'RocknRoll One', sans-serif;
     }
 
     html {
-        background: url(${background}) no-repeat center center fixed;  
+        background: url(${background}) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
