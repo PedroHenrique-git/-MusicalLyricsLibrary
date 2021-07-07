@@ -37,7 +37,7 @@ export default function Index(): JSX.Element {
                         disabled={!artist}
                         style={!artist ? { opacity: 0.5 } : { opacity: 1 }}
                     >
-                        <FaSearch size={32} color="white" />
+                        <FaSearch size={32} color="#e9e7f8" />
                     </button>
                 </form>
             </SearchContainer>
