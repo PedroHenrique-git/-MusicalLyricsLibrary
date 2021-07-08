@@ -1,6 +1,16 @@
 import styled from 'styled-components';
 import * as colors from '../../styles/colors';
 
+export const BackgroundContainer = styled.div`
+    background: rgba(28, 32, 44, 0.952);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+`;
+
 export const SearchContainer = styled.section`
     max-width: 600px;
     margin: 100px auto;
@@ -53,5 +63,14 @@ export const SearchContainer = styled.section`
             cursor: pointer;
             height: 45px;
         }
+    }
+
+    .recently_searched {
+        margin: 30px 0;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
     }
 `;

@@ -5,6 +5,8 @@ import { useArtist } from '../../services/getData';
 import { MainContainer } from './style';
 import Album from '../../components/Album/Album';
 import Tracks from '../../components/Tracks/Tracks';
+import Loading from '../../components/Loading/Loading';
+import gif from '../../images/load-image-gif.gif';
 
 const htmlBackground = document.querySelector('html') as HTMLElement;
 
@@ -12,7 +14,7 @@ export default function ArtistPage(): JSX.Element {
     const { name } = useParams<{ name: string }>();
     const { data, isLoading, isError } = useArtist(name);
 
-    if (isLoading) return <h1>Loading...</h1>;
+    if (isLoading) return <Loading />;
 
     if (isError) return <h1>Error...</h1>;
 
@@ -40,7 +42,11 @@ export default function ArtistPage(): JSX.Element {
                     >
                         <h1>
                             <img
-                                src={data.artists[0].strArtistLogo}
+                                src={
+                                    !isLoading
+                                        ? data.artists[0].strArtistLogo
+                                        : gif
+                                }
                                 alt={data.artists[0].strArtist}
                             />
                         </h1>
@@ -66,7 +72,7 @@ export default function ArtistPage(): JSX.Element {
                 </div>
                 <div className="artist_informations-image">
                     <img
-                        src={data.artists[0].strArtistThumb}
+                        src={!isLoading ? data.artists[0].strArtistThumb : gif}
                         alt={data.artists[0].strArtist}
                     />
                 </div>

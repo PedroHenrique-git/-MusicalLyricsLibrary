@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useAlbum } from '../../services/getData';
 import { Albums } from './style';
-import def from '../../images/default.jpg';
+import gif from '../../images/load-image-gif.gif';
+import isEmpty from '../../utils/isEmpty';
 
 export default function Album({ id }: { id: string }): JSX.Element {
     const { albumData, isLoading, isError } = useAlbum(id);
@@ -13,11 +14,11 @@ export default function Album({ id }: { id: string }): JSX.Element {
     return (
         <Albums>
             {albumData.album.map((album) => (
-                <Link to={`/album/${album.idAlbum}`}>
+                <Link to={`/album/${album.idArtist}/${album.idAlbum}`}>
                     <div className="album">
                         <img
                             src={
-                                album.strAlbumThumb ? album.strAlbumThumb : def
+                                !isLoading ? isEmpty(album.strAlbumThumb) : gif
                             }
                             alt={album.idAlbum}
                         />

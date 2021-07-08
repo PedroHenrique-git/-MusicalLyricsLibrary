@@ -1,4 +1,4 @@
-export interface IArtist {
+export default interface IArtist {
     data: {
         artists: Array<{
             idArtist: string;
@@ -15,27 +15,6 @@ export interface IArtist {
             strArtistThumb: string;
             strArtistLogo: string;
             strArtistWideThumb: string;
-        }>;
-    };
-    isLoading: boolean;
-    isError: null;
-}
-
-export interface IAlbum {
-    albumData: {
-        album: Array<{
-            idAlbum: string;
-            strAlbumThumb: string;
-        }>;
-    };
-    isLoading: boolean;
-    isError: null;
-}
-
-export interface ITrack {
-    data: {
-        mvids: Array<{
-            strMusicVid: string;
         }>;
     };
     isLoading: boolean;
