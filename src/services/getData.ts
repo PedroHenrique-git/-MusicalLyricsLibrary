@@ -4,9 +4,10 @@ import IAlbumTrack from '../interfaces/IAlbumTrack';
 import IArtist from '../interfaces/IArtist';
 import ITrack from '../interfaces/ITrack';
 
-const baseUrl = 'https://www.theaudiodb.com/api/v1/json/1/';
+export const baseUrl = 'https://www.theaudiodb.com/api/v1/json/1/';
 
-const fetcher = (url: string) => fetch(url).then((resp) => resp.json());
+const fetcher = (url: string): Promise<any> =>
+    fetch(url).then((resp) => resp.json());
 
 export function useArtist(name: string): IArtist {
     const { data, error } = useSWR(`${baseUrl}/search.php?s=${name}`, fetcher);

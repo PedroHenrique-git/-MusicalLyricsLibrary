@@ -7,6 +7,7 @@ import Album from '../../components/Album/Album';
 import Tracks from '../../components/Tracks/Tracks';
 import Loading from '../../components/Loading/Loading';
 import gif from '../../images/load-image-gif.gif';
+import background from '../../images/background.jpg';
 
 const htmlBackground = document.querySelector('html') as HTMLElement;
 
@@ -25,6 +26,8 @@ export default function ArtistPage(): JSX.Element {
 
     if (data.artists[0].strArtistWideThumb !== null) {
         htmlBackground.style.backgroundImage = `url(${data.artists[0].strArtistWideThumb})`;
+    } else {
+        htmlBackground.style.backgroundImage = `url(${background})`;
     }
 
     return (

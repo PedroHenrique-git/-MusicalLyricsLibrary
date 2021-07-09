@@ -73,4 +73,31 @@ export const SearchContainer = styled.section`
         justify-content: flex-start;
         flex-direction: column;
     }
+
+    .recently_searched {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .title {
+            h2 {
+                color: ${colors.cinza};
+                font-weight: 100;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+        }
+        .recently_searched-cards {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(4, 150px);
+
+            .card {
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+    }
 `;

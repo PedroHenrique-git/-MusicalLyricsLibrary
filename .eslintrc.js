@@ -31,6 +31,7 @@ module.exports = {
         'react/jsx-props-no-spreading': 0,
         'react/react-in-jsx-scope': 0,
         'import/no-unresolved': 0,
+        'no-param-reassign': 0,
     },
     settings: {
         'import/resolver': {
