@@ -98,24 +98,22 @@ export const SearchContainer = styled.section`
             width: 100%;
 
             @media (max-width: 640px) {
-                justify-content: center;
+                display: grid;
+                gap: 5px;
+                grid-template-rows: auto auto;
+                grid-template-columns: auto auto;
             }
 
             .card {
                 margin-right: 10px;
-
-                @media (max-width: 640px) {
-                    margin-right: 20px;
-                    margin-bottom: 20px;
-                }
 
                 img {
                     height: 140px;
                     width: 140px;
 
                     @media (max-width: 640px) {
-                        height: 200px;
-                        width: 200px;
+                        height: 100%;
+                        width: 100%;
                     }
                 }
             }
