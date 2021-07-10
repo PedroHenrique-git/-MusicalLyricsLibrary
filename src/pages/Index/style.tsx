@@ -23,7 +23,7 @@ export const SearchContainer = styled.section`
     z-index: 1;
 
     @media (max-width: 640px) {
-        margin: 30px auto;
+        margin: 15px auto;
     }
 
     h1 {
@@ -71,6 +71,11 @@ export const SearchContainer = styled.section`
 
     .recently_searched {
         margin: 30px 0;
+
+        @media (max-width: 640px) {
+            margin: 0;
+            margin-top: 15px;
+        }
 
         display: flex;
         align-items: flex-start;
