@@ -1,7 +1,7 @@
 import { LoadingContainer } from './style';
 import gif from '../../images/loading.gif';
 
-export default function Lading(): JSX.Element {
+export default function Loading(): JSX.Element {
     return (
         <LoadingContainer>
             <img src={gif} alt="loading gif" />

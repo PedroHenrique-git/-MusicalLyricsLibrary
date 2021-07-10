@@ -27,6 +27,7 @@ export const AlbumContainer = styled.main`
         .album_title {
             color: ${colors.fontColor};
             font-size: 2.6em;
+            white-space: nowrap;
         }
 
         .album_tumb {

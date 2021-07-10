@@ -8,6 +8,7 @@ import Tracks from '../../components/Tracks/Tracks';
 import Loading from '../../components/Loading/Loading';
 import gif from '../../images/load-image-gif.gif';
 import background from '../../images/background.jpg';
+import Error from '../../components/Error/Error';
 
 const htmlBackground = document.querySelector('html') as HTMLElement;
 
@@ -17,7 +18,7 @@ export default function ArtistPage(): JSX.Element {
 
     if (isLoading) return <Loading />;
 
-    if (isError) return <h1>Error...</h1>;
+    if (isError) return <Error />;
 
     if (data.artists === null) {
         toast.error('nothing found');

@@ -38,7 +38,7 @@ export default function Index(): JSX.Element {
         } = await request.json();
         const index = searched.findIndex((obj) => obj.name === artist);
         if (index === -1 && data.artists) {
-            if (searched.length <= 2)
+            if (searched.length <= 3) {
                 setSearched([
                     ...searched,
                     {
@@ -47,16 +47,22 @@ export default function Index(): JSX.Element {
                         id: searched.length,
                     },
                 ]);
-            else
-                setSearched((ar) => {
-                    ar[0] = {
-                        name: artist.toLocaleLowerCase(),
-                        image: data.artists[0].strArtistThumb,
-                        id: searched.length,
-                    };
-                    console.log(ar);
-                    return ar;
+            } else {
+                const copyState = [...searched];
+                let menor = copyState[0].id;
+                copyState.forEach((obj) => {
+                    if (obj.id < menor) menor = obj.id;
                 });
+                const minItemIndex = copyState.findIndex(
+                    (obj) => obj.id === menor
+                );
+                copyState.splice(minItemIndex, 1, {
+                    name: artist.toLocaleLowerCase(),
+                    image: data.artists[0].strArtistThumb,
+                    id: copyState.length + menor,
+                });
+                setSearched(copyState);
+            }
         }
         setRedirect(true);
     };

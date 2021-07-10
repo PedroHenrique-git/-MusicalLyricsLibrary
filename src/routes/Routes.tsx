@@ -2,6 +2,7 @@ import { Switch, Route } from 'react-router-dom';
 import ArtistPage from '../pages/ArtistPage/ArtistPage';
 import Index from '../pages/Index/Index';
 import AlbumPage from '../pages/AlbumPage/AlbumPage';
+import NotFound from '../components/404/404';
 
 export default function Routes(): JSX.Element {
     return (
@@ -13,7 +14,7 @@ export default function Routes(): JSX.Element {
                 path="/album/:artistId/:albumId"
                 component={AlbumPage}
             />
-            <Route exact path="*" component={Index} />
+            <Route exact path="*" component={NotFound} />
         </Switch>
     );
 }

@@ -22,6 +22,10 @@ export const SearchContainer = styled.section`
     justify-content: center;
     z-index: 1;
 
+    @media (max-width: 640px) {
+        margin: 30px auto;
+    }
+
     h1 {
         color: ${colors.cinza};
         font-weight: 100;
@@ -88,14 +92,22 @@ export const SearchContainer = styled.section`
             }
         }
         .recently_searched-cards {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: repeat(4, 150px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
 
             .card {
                 img {
-                    height: 100%;
-                    width: 100%;
+                    height: 140px;
+                    width: 140px;
+
+                    @media (max-width: 640px) {
+                        margin-bottom: 10px;
+                        height: 170px;
+                        width: 170px;
+                    }
                 }
             }
         }

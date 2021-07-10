@@ -11,4 +11,9 @@ export const LoadingContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    img {
+        height: auto;
+        width: 300px;
+    }
 `;
