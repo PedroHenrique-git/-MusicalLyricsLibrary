@@ -27,7 +27,10 @@ export const AlbumContainer = styled.main`
         .album_title {
             color: ${colors.fontColor};
             font-size: 2.6em;
-            white-space: nowrap;
+
+            @media (max-width: 640px) {
+                text-align: center;
+            }
         }
 
         .album_tumb {

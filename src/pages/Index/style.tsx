@@ -94,19 +94,28 @@ export const SearchContainer = styled.section`
         .recently_searched-cards {
             display: flex;
             align-items: center;
-            justify-content: space-between;
             flex-wrap: wrap;
             width: 100%;
 
+            @media (max-width: 640px) {
+                justify-content: center;
+            }
+
             .card {
+                margin-right: 10px;
+
+                @media (max-width: 640px) {
+                    margin-right: 20px;
+                    margin-bottom: 20px;
+                }
+
                 img {
                     height: 140px;
                     width: 140px;
 
                     @media (max-width: 640px) {
-                        margin-bottom: 10px;
-                        height: 170px;
-                        width: 170px;
+                        height: 200px;
+                        width: 200px;
                     }
                 }
             }
