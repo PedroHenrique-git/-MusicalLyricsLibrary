@@ -37,6 +37,11 @@ export const AlbumContainer = styled.main`
             max-height: 400px;
             max-width: 400px;
             margin: 25px 0;
+
+            @media (max-width: 640px) {
+                max-height: 300px;
+                max-width: 300px;
+            }
         }
 
         .album_tracks {
