@@ -4,7 +4,7 @@ import IAlbumTrack from '../interfaces/IAlbumTrack';
 import IArtist from '../interfaces/IArtist';
 import ITrack from '../interfaces/ITrack';
 
-export const baseUrl = 'https://www.theaudiodb.com/api/v1/json/1/';
+export const baseUrl = 'https://www.theaudiodb.com/api/v1/json/2';
 
 const fetcher = (url: string): Promise<any> =>
     fetch(url).then((resp) => resp.json());
